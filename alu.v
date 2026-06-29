@@ -43,7 +43,12 @@ endmodule
 
 
 module fa(input a, input b, input cin, output s, output cout);
-    assign {cout,s} = a+b+cin;
+    wire w1,w3,w4;
+    xor g1(w1,a,b);
+    xor g2(s,w1,cin);
+    and g3(w3,w1,cin);
+    and g4(w4,a,b);
+    or g5(cout,w3,w4);
 endmodule
 
 
